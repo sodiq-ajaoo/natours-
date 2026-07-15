@@ -1,0 +1,34 @@
+extends base
+
+block content
+  main.main
+    .ma-bt-lg
+      h2.heading-secondary My Booked Tours
+
+    each booking in bookings
+      .card-container
+        .card
+          .card__header
+            img.card__picture(src=`/img/tours/${booking.tour.imageCover}`)
+            h3.heading-tertirary
+              span= booking.tour.name
+
+          .card__details
+            p= booking.tour.summary
+            p Price Paid: $#{booking.price}
+            p Booking Date:
+              = booking.createdAt.toDateString()
+
+            p Payment Status:
+              if booking.paid
+                span(style='color: green') Paid
+              else
+                span(style='color: red') Unpaid
+
+            p Booking Reference:
+              = booking.paystackReference
+
+          .card__footer
+            a.btn.btn--green(
+              href=`/tour/${booking.tour.slug}`
+            ) View Tour
