@@ -48,6 +48,14 @@ process.on('unhandledRejection', (err) => {
   });
 });
 
+process.on('SIGTERM', () => {
+  console.log('SIGTERM RECEIVED. Shutting down gracefully');
+
+  server.close(() => {
+    console.log('Process terminated');
+  });
+});
+
 console.log(__dirname);
 // console.log(process.env.DATABASE_PASSWORD);
 
