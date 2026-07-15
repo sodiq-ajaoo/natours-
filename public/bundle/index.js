@@ -781,9 +781,9 @@ userPasswordForm.addEventListener('submit', async (e)=>{
     document.getElementById('password-confirm').value = '';
 });
 if (bookBtn) bookBtn.addEventListener('click', (e)=>{
-    console.log(bookBtn);
+    // console.log(bookBtn);
     e.target.textContent = 'Processing...';
-    console.log('clicked');
+    // console.log('clicked');
     const { tourId } = e.target.dataset;
     (0, _paystack.bookTour)(tourId);
 });
@@ -13234,7 +13234,7 @@ const login = async (email, password)=>{
     try {
         const res = await (0, _axiosDefault.default)({
             method: 'POST',
-            url: 'http://127.0.0.1:3000/api/v1/users/login',
+            url: '/api/v1/users/login',
             data: {
                 email,
                 password
@@ -13258,7 +13258,7 @@ const logout = async ()=>{
     try {
         const res = await (0, _axiosDefault.default)({
             method: 'GET',
-            url: 'http://127.0.0.1:3000/api/v1/users/logout'
+            url: '/api/v1/users/logout'
         });
         if (res.data.status === 'success') location.reload(true);
     } catch (err) {
@@ -18976,7 +18976,7 @@ var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _alerts = require("./alerts");
 const updateSettings = async (data, type)=>{
     try {
-        const url = type === 'password' ? 'http://127.0.0.1:3000/api/v1/users/updateMyPassword' : 'http://127.0.0.1:3000/api/v1/users/updateMe';
+        const url = type === 'password' ? '/api/v1/users/updateMyPassword' : '/api/v1/users/updateMe';
         const res = await (0, _axiosDefault.default)({
             method: 'PATCH',
             url,
@@ -18997,10 +18997,10 @@ var _axiosDefault = parcelHelpers.interopDefault(_axios);
 const bookTour = async (tourId)=>{
     try {
         const res = await (0, _axiosDefault.default)(`/api/v1/bookings/checkout-session/${tourId}`);
-        console.log(res);
+        // console.log(res);
         if (res.data.status === 'success') window.location.assign(res.data.session.authorization_url);
     } catch (err) {
-        console.log(err);
+        // console.log(err);
         alert('Something went wrong while starting payment.');
     }
 }; // const bookBtn = document.getElementById('book-tour');

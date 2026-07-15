@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
 
-console.log('Loading usermodel.js');
-console.trace('Imported from');
+// console.log('Loading usermodel.js');
+// console.trace('Imported from');
 
 const userSchema = new mongoose.Schema({
   name: {

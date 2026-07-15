@@ -18,7 +18,4 @@ mongoose.connect(DB).then(async () => {
       passwordConfirm: 'test1234',
     },
   );
-
-  console.log('All passwords reset to test1234');
-  process.exit();
 });
