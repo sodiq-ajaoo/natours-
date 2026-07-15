@@ -1,4 +1,17 @@
 {
+  "name": "natour",
+  "version": "1.0.0",
+  "description": "learning node,express and mangoDb",
+  "license": "ISC",
+  "author": "Hammed sodiq",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "debug": "ndb server.js",
+    "watch:js": "parcel watch public/js/index.js --dist-dir public/bundle",
+    "build:js": "parcel build public/js/index.js --dist-dir public/bundle"
+  },
   "dependencies": {
     "axios": "^1.18.1",
     "bcryptjs": "^3.0.3",
@@ -19,7 +32,6 @@
     "morgan": "^1.10.1",
     "multer": "^2.2.0",
     "nodemailer": "^9.0.3",
-    "parcel": "^2.16.4",
     "pug": "^3.0.4",
     "regenerator-runtime": "^0.14.1",
     "sharp": "^0.35.3",
@@ -50,5 +62,8 @@
     "stream-http": "^3.2.0",
     "url": "^0.11.4",
     "util": "^0.12.5"
+  },
+  "engines": {
+    "node": "18.x"
   }
 }
